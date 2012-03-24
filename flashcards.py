@@ -186,9 +186,9 @@ class Game:
         self.init_optparse()
 
     def init_optparse(self):
-        self.parser = argparse.ArgumentParser(description="Helps you study terms for your class.",
+        self.parser = argparse.ArgumentParser(description="This program helps you study terms for your class. Press CTRL+C to enter command mode and to use one of these options.",
 ##                                              add_help=None,
-##                                              prog = "flashcards.py"
+                                              prog = ""
                                               )
         class ChangeCols(argparse.Action):
             def __call__(me, parser, namespace, values, option_string=None):
@@ -205,7 +205,7 @@ class Game:
                 loadFlashcard(' '.join(values))
                 
             
-        self.parser.add_argument('-c', '--changeCols', nargs='*', type=int,
+        self.parser.add_argument('-c', '--changeCols', nargs='*', type=int, metavar='C#',
                                  action=ChangeCols, help="Change which columns to be tested on.")
         self.parser.add_argument('-v', '--view-settings', action='store_true', 
                                  help="View the current settings of these flashcards.")
@@ -260,6 +260,7 @@ class Game:
         print(" ********** EXITING COMMAND MODE ********* ")
 
     def run(self):
+        self.parser.print_help()
         while 1:
             try:
                 self.run1test()
@@ -301,7 +302,7 @@ class Game:
                 print("column", qn, end=' ')
             inp = input('?\n')
             correctLevel = compare(inp, curTest[qn])
-            print("correctness:", correctLevel)
+            print("Correctness:", correctLevel*100, '%')
             print('Answer:', curTest[qn])
         print()
 ##        if correctLevel
