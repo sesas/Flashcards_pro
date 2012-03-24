@@ -209,10 +209,10 @@ class Game:
                                  action=ChangeCols, help="Change which columns to be tested on.")
         self.parser.add_argument('-v', '--view-settings', action='store_true', 
                                  help="View the current settings of these flashcards.")
-        self.parser.add_argument('-s', '--save', nargs='*', action=SaveGame, metavar='FILE_name_part',
-                                 help="Save the current flashcards to a file that can be loaded later. The file name can have spaces.")
-        self.parser.add_argument('-l', '--load', nargs='*', action=LoadGame, metavar='FILE_name_part',
-                                 help="Loads a file of flashcards that was saved previously. The file name can have spaces.")
+##        self.parser.add_argument('-s', '--save', nargs='*', action=SaveGame, metavar='FILE_name_part',
+##                                 help="Save the current flashcards to a file that can be loaded later. The file name can have spaces.")
+##        self.parser.add_argument('-l', '--load', nargs='*', action=LoadGame, metavar='FILE_name_part',
+##                                 help="Loads a file of flashcards that was saved previously. The file name can have spaces.")
         self.parser.add_argument('-q', '--quit', action='store_true', help="Quit the program and exit. You can also press Ctrl+C a second time.")
 
         
